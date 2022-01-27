@@ -24,6 +24,29 @@
 
 // -----------------------------------
 
+// const numberOfFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
+
+// const personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+
+// const a = prompt('Один из последних просметренных фильмов?', ''),
+//       b = prompt('На сколько оцените его?', ''),
+//       c = prompt('Один из последних просметренных фильмов?', ''),
+//       d = prompt('На сколько оцените его?', '');
+
+
+// personalMovieDB.movies[a] = b;
+// personalMovieDB.movies[c] = d;
+
+// console.log(personalMovieDB);
+
+// --------------------------- урок 2 ---------------------------------
+
 const numberOfFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
 
 const personalMovieDB = {
@@ -34,13 +57,27 @@ const personalMovieDB = {
     privat: false
 };
 
-const a = prompt('Один из последних просметренных фильмов?', ''),
-      b = prompt('На сколько оцените его?', ''),
-      c = prompt('Один из последних просметренных фильмов?', ''),
-      d = prompt('На сколько оцените его?', '');
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просметренных фильмов?', ''),
+          b = prompt('На сколько оцените его?', ''); 
+    
+    if (a !=null && b !=null && a != '' && b != '' && a.length < 50) {  
+        personalMovieDB.movies[a] = b; 
+        console.log('Done');
+    } else {
+        console.log('Error');
+        i--;
+    }     
+    // null - это отменено действие нажата кнопка Отмена, a != '' - это значит а не равно пустой строке  
+} 
 
-
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log('Вы классический зритель');
+} else if (personalMovieDB.count >=30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
 console.log(personalMovieDB);
